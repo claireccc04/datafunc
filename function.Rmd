@@ -1,0 +1,15 @@
+## How the second argument works
+```{r}
+library(dplyr)
+
+data <- function(x) {
+  x <- x %>%
+    mutate(total = x[,1] + x[,2],
+           average = (x[,1]+x[,2]+x[,3]+x[,4])/4) #second argument on dev branch
+  return(x)
+}
+
+new_iris <- data(iris)
+head(new_iris)
+```
+The second argument would generate a new variable called average, which calculates the average of the 4 original variables.
